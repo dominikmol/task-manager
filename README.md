@@ -5,7 +5,7 @@ task manager project for user interface design class
 - [Dominik Molenda](https://github.com/dominikmol)
 - [Kirill Rodin](https://github.com/Cheater4sT)
 - [Marcin Jasnowski](https://github.com/GodNorth)
-- [Vitali Zubkov](https://github.com/)
+- [Vitali Zubkov](https://github.com/Vitalii724)
 
 # used technology / languages
 - JavaScript
