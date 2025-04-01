@@ -64,3 +64,19 @@ body {
     border-radius: 20px;
     background-color: var(--logo-main-bg);
 }
+
+.main .main_wrapper {
+    width: 80%;
+    height: 60%;
+    border-radius: 20px;
+    border: 2px solid var(--border-color);
+    background-color: var(--main-bg);
+}
+
+.main .login_form_wrapper {
+    width: fit-content;
+}
+
+.main .login_form_wrapper .login_submit {
+    padding: 8px 36px;
+}
