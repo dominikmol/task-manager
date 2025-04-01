@@ -9,16 +9,16 @@
 </head>
 <body>
     <!-- Header -->
-    <div class="container-fluid header">
+    <div class="border container-fluid header">
         <div class="row align-items-center">
             <div class="logo col-3">
                 <span class="logo">QUESTIFY</span>
             </div>
             <div class="login_form_wrapper col-6 ms-auto">
                 <form action="" method="" class="d-flex my-0">
-                    <input type="text" id="username" name="username" placeholder="username" class="login_form ms-auto">
-                    <input type="password" id="password" name="password" placeholder="password" class="login_form mx-4">
-                    <input type="submit" value="login" class="login_submit">
+                    <input type="text" id="username" name="username" placeholder="username" class="border login_form ms-auto">
+                    <input type="password" id="password" name="password" placeholder="password" class="border login_form mx-4">
+                    <input type="submit" value="login" class="border button_style">
                 </form>
             </div>
         </div>
@@ -26,17 +26,18 @@
 
     <!-- Main -->
      <div class="container main" id="newtask">
-        <div class="user_page main_wrapper">
-        <form action="" >
-            <input type="text" placeholder="username" class="login_form ms-auto">
-            <input class="border" type="date">
-            <select name="cars" id="data">
+        <div class="user_page main_wrapper border">
+        <form action="" class="d-flex align-items-center">
+            <input type="text" placeholder="username" class="border login_form ms-auto">
+            <input class="border button_style" type="date">
+            <select class="border button_style" name="cars" id="data">
                 <option value="volvo">task LVL</option>
                 <option value="volvo">1</option>
                 <option value="saab">2</option>
                 <option value="opel">3</option>
                 <option value="audi">4</option>
               </select>
+            <textarea name="" class="border login_form mx-auto"></textarea>
         </form>
      </div>
 </body>
