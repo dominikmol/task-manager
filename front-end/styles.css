@@ -80,3 +80,8 @@ body {
 .main .login_form_wrapper .login_submit {
     padding: 8px 36px;
 }
+
+
+.user_page {
+    color: white;
+}
