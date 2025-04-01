@@ -11,6 +11,10 @@ body {
     background-color: black;
 }
 
+.border {
+    border: 2px solid var(--border-color) !important;
+}
+
 .header {
     padding: 2%;
     background-color: rgba(75, 49, 98, 0.4);
@@ -28,7 +32,6 @@ body {
     background-color: rgba(58, 52, 51, 0.21);
     padding: 5px 10px;
     color: white;
-    border: 2px solid var(--border-color);
     transition-duration: .3s;
 }
 
@@ -40,11 +43,10 @@ body {
     color: white;
 }
 
-.login_form_wrapper .login_submit {
+.button_style {
     padding: 12px 24px;
     background-color: var(--task-bg);
     color: white;
-    border: 2px solid var(--border-color);
     border-radius: 20px;
     transition-duration: .3s;
 }
@@ -60,7 +62,6 @@ body {
     width: fit-content;
     margin: 2% auto;
     padding: 15px 60px;
-    border: 2px solid var(--border-color);
     border-radius: 20px;
     background-color: var(--logo-main-bg);
 }
@@ -69,7 +70,6 @@ body {
     width: 80%;
     height: 60%;
     border-radius: 20px;
-    border: 2px solid var(--border-color);
     background-color: var(--main-bg);
 }
 
@@ -77,6 +77,11 @@ body {
     width: fit-content;
 }
 
-.main .login_form_wrapper .login_submit {
+.main .login_form_wrapper .button_style {
     padding: 8px 36px;
+}
+
+
+.user_page {
+    color: white;
 }
