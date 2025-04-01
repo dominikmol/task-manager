@@ -40,7 +40,7 @@ body {
     color: white;
 }
 
-.login_form_wrapper .login_submit {
+.button_style {
     padding: 12px 24px;
     background-color: var(--task-bg);
     color: white;
