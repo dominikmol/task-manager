@@ -10,6 +10,8 @@
 body {
     background-color: black;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .break {
@@ -74,7 +76,7 @@ body {
 
 .main .main_wrapper {
     width: 80%;
-    height: 60%;
+    height: 50vh;
     border-radius: 20px;
     background-color: var(--main-bg);
 }
@@ -90,4 +92,8 @@ body {
 
 .user_page {
     color: white;
+}
+
+.buttons_task {
+    width: 10%;
 }
