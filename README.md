@@ -10,4 +10,4 @@ task manager project for user interface design class
 # used technology / languages
 - JavaScript
 - PocketBase - Back-End
-- ... - Front-End
+- React v19.0.0 / Next js v15.2.4 - Front-End
