@@ -97,3 +97,47 @@ body {
 .buttons_task {
     width: 10%;
 }
+
+.lvl-panel .level-bar {
+    background-color: #a315a3;
+    color: white;
+    font-weight: 400;
+}
+
+.show-panel {
+    color: aliceblue;
+    height: 790px;
+    width: 100%;
+}
+
+.show-panel .background {
+    background-color: rgba(41, 41, 41, 0.75);
+}
+
+.show-panel .card-title {
+    color:#4B3162;
+    font-size: 30px;
+    height: 400px;
+}
+
+.task-panel {
+    height: 790px;
+    width: 25%;
+}
+
+.task-panel .background {
+    background-color: rgba(41, 41, 41, 0.75);
+}
+
+.task-panel .list-group-item {
+    background-color: rgba(31, 31, 31, 0.75);
+    color: #ddd; 
+ }
+  
+  .task-panel .list-group-item:hover {
+    background-color: #3a3a3a; 
+    color: #fff;
+  }
+  
+
+  
