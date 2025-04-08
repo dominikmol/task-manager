@@ -83,6 +83,7 @@ body {
 }
 
 .main .main_wrapper {
+    position: relative;
     width: 80%;
     height: 50vh;
     border-radius: 20px;
