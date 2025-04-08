@@ -106,8 +106,6 @@ body {
     font-weight: 400;
 }
 
-
-
 .background {
     background-color: rgba(41, 41, 41, 0.75);
 }
@@ -123,6 +121,7 @@ body {
     background-color: var(--task-bg);
     color: white;
     text-align: center;
+    cursor: pointer;
     border-radius: 24px;
 }
 
