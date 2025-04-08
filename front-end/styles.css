@@ -61,6 +61,12 @@ body {
     transition-duration: .3s;
 }
 
+.button_style:hover {
+    border: 2px solid var(--non-active-background) !important;
+    background-color: var(--task-bg-hover);
+    transition-duration: .3s;
+}
+
 .login_form_wrapper input:hover {
     border: 2px solid var(--non-active-background) !important;
     background-color: var(--task-bg-hover);
@@ -114,6 +120,7 @@ body {
     height: 60vh;
     padding: 10px 20px 10px 10px;
     overflow: scroll;
+    border-radius: 24px;
 }
 
 .task_wrapper .task {
@@ -122,7 +129,18 @@ body {
     color: white;
     text-align: center;
     cursor: pointer;
+    margin-bottom: 10%;
     border-radius: 24px;
+    transition-duration: .3s;
+}
+
+.task_wrapper .task:hover {
+    background-color: var(--task-bg-hover);
+    transition-duration: .3s;
+}
+
+.task_wrapper .task:last-child {
+    margin-bottom: 0;
 }
 
 .task_wrapper .task.active {
@@ -134,6 +152,10 @@ body {
     color: var(--task-active-border);
 }
 
+.task_content_wrapper {
+    border-radius: 24px;
+}
+
 .task_content {
     color: white;
 }
@@ -141,12 +163,6 @@ body {
 .task_content .task_title { 
     font-size: 2rem;
 }
-  
-.task-panel .list-group-item:hover {
-    background-color: #3a3a3a; 
-    color: #fff;
-}
-  
 
 .main_wrappereditlog {
     height: 50px;
