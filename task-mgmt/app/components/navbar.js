@@ -1,12 +1,19 @@
 'use client'
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 import { useLogin } from '../contexts/loginContext.js'
 
 export default function Navbar() {
     const { loggedIn, setLoggedIn } = useLogin();
-    // const [loggedIn, setLoggedIn] = useState(false);
+    const router = useRouter();
+
+    async function onSubmit(e) {
+        e.preventDefault()
+        setLoggedIn(true)
+        router.push('/tasks');
+    }
 
     return (
         <nav className="container-fluid header border_custom">
@@ -25,10 +32,7 @@ export default function Navbar() {
                             <button className="border_custom button_style" onClick={() => setLoggedIn(false)}>logout</button>
                         </div>
                     ): (
-                        <form action="" method="" className="d-flex my-0 justify-content-end"  onSubmit={(e) => {
-                            e.preventDefault();
-                            setLoggedIn(true);
-                            }}>
+                        <form className="d-flex my-0 justify-content-end"  onSubmit={onSubmit}>
                             <input type="text" id="username" name="username" placeholder="username" className="border_custom login_form ms-auto" />
                             <input type="password" id="password" name="password" placeholder="password" className="border_custom login_form mx-4" />
                             <input type="submit" value="login" className="border_custom button_style" />
