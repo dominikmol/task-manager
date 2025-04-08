@@ -112,6 +112,7 @@ body {
 }
 
 .progress {
+    background-color: transparent;
     border-radius: 24px;
 }
 

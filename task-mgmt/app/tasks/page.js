@@ -28,7 +28,7 @@ export default function TasksPage() {
           <div className="card-body">
             <div className="d-flex align-items-center">
               <div className="progress flex-grow-1" style={{height: 30 + 'px'}}>
-                <div className="progress-bar level-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%
+                <div className="progress-bar level-bar" role="progressbar" style={{width: 40 + '%'}} aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%
                 </div>
               </div>
             </div>
