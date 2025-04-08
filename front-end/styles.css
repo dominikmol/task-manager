@@ -9,6 +9,9 @@
 
 body {
     background-color: black;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .break {
@@ -16,7 +19,7 @@ body {
     height: 0;
 }
 
-.border {
+.border_custom {
     border: 2px solid var(--border-color) !important;
 }
 
@@ -57,7 +60,7 @@ body {
 }
 
 .login_form_wrapper input:hover {
-    border: 2px solid var(--non-active-background);
+    border: 2px solid var(--non-active-background) !important;
     background-color: var(--task-bg-hover);
     transition-duration: .3s;
 }
@@ -73,7 +76,7 @@ body {
 
 .main .main_wrapper {
     width: 80%;
-    height: 60%;
+    height: 50vh;
     border-radius: 20px;
     background-color: var(--main-bg);
 }
@@ -90,3 +93,51 @@ body {
 .user_page {
     color: white;
 }
+
+.buttons_task {
+    width: 10%;
+}
+
+.lvl-panel .level-bar {
+    background-color: #a315a3;
+    color: white;
+    font-weight: 400;
+}
+
+.show-panel {
+    color: aliceblue;
+    height: 790px;
+    width: 100%;
+}
+
+.show-panel .background {
+    background-color: rgba(41, 41, 41, 0.75);
+}
+
+.show-panel .card-title {
+    color:#4B3162;
+    font-size: 30px;
+    height: 400px;
+}
+
+.task-panel {
+    height: 790px;
+    width: 25%;
+}
+
+.task-panel .background {
+    background-color: rgba(41, 41, 41, 0.75);
+}
+
+.task-panel .list-group-item {
+    background-color: rgba(31, 31, 31, 0.75);
+    color: #ddd; 
+ }
+  
+  .task-panel .list-group-item:hover {
+    background-color: #3a3a3a; 
+    color: #fff;
+  }
+  
+
+  
