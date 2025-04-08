@@ -11,6 +11,7 @@
 
 body {
   background-image: url("./img/stars-1654074.jpg");
+  background-size: cover;
 
   min-height: 100vh;
   display: flex;
