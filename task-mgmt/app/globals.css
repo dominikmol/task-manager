@@ -10,7 +10,8 @@
 }
 
 body {
-  background-color: black;
+  background-image: url("./img/stars-1654074.jpg");
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
