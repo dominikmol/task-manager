@@ -9,16 +9,16 @@
 </head>
 <body>
     <!-- Header -->
-    <div class="border container-fluid header">
+    <div class="border_custom  container-fluid header">
         <div class="row align-items-center">
             <div class="logo col-3">
                 <span class="logo">QUESTIFY</span>
             </div>
             <div class="login_form_wrapper col-6 ms-auto">
                 <form action="" method="" class="d-flex my-0">
-                    <input type="text" id="username" name="username" placeholder="username" class="border login_form ms-auto">
-                    <input type="password" id="password" name="password" placeholder="password" class="border login_form mx-4">
-                    <input type="submit" value="login" class="border button_style">
+                    <input type="text" id="username" name="username" placeholder="username" class="border_custom login_form ms-auto">
+                    <input type="password" id="password" name="password" placeholder="password" class="border_custom login_form mx-4">
+                    <input type="submit" value="login" class="border_custom login_form button_style">
                 </form>
             </div>
         </div>
@@ -26,27 +26,35 @@
 
     <!-- Main -->
      <div class="container main m-4" id="newtask">
-        <div class="user_page main_wrapper border d-flex flex-column align-items-center mx-auto">
-        <form action="" class="d-flex flex-wrap align-items-center justify-content-center">
-            <input type="text" placeholder="username" class="border login_form">
-            <input class="border button_style" type="date">
-            <select class="border button_style" name="cars" id="data">
-                <option value="volvo">task LVL</option>
-                <option value="volvo">1</option>
-                <option value="saab">2</option>
-                <option value="opel">3</option>
-                <option value="audi">4</option>
-              </select>
-            <div class="w-100"></div><br><br>
-            <textarea placeholder="description" name="" class="border login_form mx-auto" rows="12" cols="100"></textarea>
-            
-            <div>
-                <img src="assets/cancel_24dp_EBD478_FILL0_wght200_GRAD0_opsz24.svg" alt="" class="me-3" style="filter: brightness(0) saturate(100%) invert(85%) sepia(100%) saturate(500%) hue-rotate(0deg) brightness(100%) contrast(100%);">
-                <button class="border login_form">cancel</button><br><br>
-                <img src="assets/save_24dp_EBD478_FILL0_wght200_GRAD0_opsz24.svg" alt="" class="me-3" style="filter: brightness(0) saturate(100%) invert(85%) sepia(100%) saturate(500%) hue-rotate(0deg) brightness(100%) contrast(100%);">
-                <button class="border login_form">save</button>
-            </div>
-        </form>
+        <div class="user_page main_wrapper border_custom login_form mx-auto">
+            <form action="" class="row justify-content-center">
+                <div class="col-md-6">
+                    <input type="text" placeholder="username" class="border_custom login_form">
+                    <input class="border_custom login_form" type="date">
+                    <select class="border_custom login_form" name="cars" id="data">
+                        <option value="volvo">task LVL</option>
+                        <option value="volvo">1</option>
+                        <option value="saab">2</option>
+                        <option value="opel">3</option>
+                        <option value="audi">4</option>
+                    </select>
+                    <div class="w-100"></div><br><br>
+                    <textarea placeholder="description" name="" class="border_custom login_form mx-auto"></textarea>
+                </div>
+                <div class="col-md-3">
+                    <div class="d-flex flex-column"></div>
+                    <button class="border_custom login_form w-100" type="reset">
+                        <img src="assets/cancel_24dp_FFFF55_FILL0_wght200_GRAD0_opsz24.svg" alt="" style="">
+                        cancel
+                    </button>
+
+                    <button class="border_custom login_form w-100" type="submit">
+                        <img src="assets/save_24dp_FFFF55_FILL0_wght200_GRAD0_opsz24.svg" alt="" style="">
+                        save
+                    </button>
+                </div>
+            </form>
+        </div>
      </div>
 </body>
 </html>
