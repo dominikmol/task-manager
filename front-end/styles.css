@@ -137,7 +137,17 @@ body {
   .task-panel .list-group-item:hover {
     background-color: #3a3a3a; 
     color: #fff;
-  }
+}
   
 
+.main_wrappereditlog {
+    height: 50px;
+}
+
+.main_wrapperedit {
+    width: 80%;
+    height: 75vh;
+    border-radius: 20px;
+    background-color: var(--main-bg);
+}
   
