@@ -148,4 +148,14 @@ body {
 }
   
 
+.main_wrappereditlog {
+    height: 50px;
+}
+
+.main_wrapperedit {
+    width: 80%;
+    height: 75vh;
+    border-radius: 20px;
+    background-color: var(--main-bg);
+}
   
