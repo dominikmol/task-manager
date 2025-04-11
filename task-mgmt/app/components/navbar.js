@@ -19,7 +19,7 @@ export default function Navbar() {
         <nav className="container-fluid header border_custom">
             <div className="row align-items-center">
                 <div className="logo col-3">
-                    <Link href="/" style={{ textDecoration: "none" }}>
+                    <Link href={loggedIn?"/tasks":"/"} style={{ textDecoration: "none" }}>
                         <span className="logo">QUESTIFY</span>
                     </Link>
                 </div>

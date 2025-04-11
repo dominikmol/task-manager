@@ -1,6 +1,5 @@
 'use client';
 import { createContext, useContext, useState } from 'react';
-
 const LoginContext = createContext();
 
 export function LoginProvider({ children }) {
