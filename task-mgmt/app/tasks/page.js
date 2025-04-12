@@ -13,19 +13,18 @@ export default function TasksPage() {
   const router = useRouter();
 
   useEffect(() => {
-    setIsMounted(true);
+    setIsMounted(true); // opóźnienie renderowania komponentu do momentu, by się poprawnie wczytywało po odświeżeniu
   }, []);
 
   useEffect(() => {
     if (!user) {
       router.push('/');
     } else {
-      setLoading(true);
-      console.log('Fetching tasks for user:', user.id);
+      setLoading(true); // stanu ładowania by czekało na wczytanie danych
       pb.collection('tasks').getFullList({ filter: `user_id = "${user.id}"` })
         .then((data) => {
           setTasks(data);
-          setLoading(false);
+          setLoading(false); // kończenie ładowania po wczytaniu danych
         }
         ).catch((error) => {
           console.error('Error fetching tasks:', error);
@@ -35,7 +34,7 @@ export default function TasksPage() {
   }, [user, router]);
 
   if (!isMounted) {
-    return null;
+    return null; // jeśli nie jest zamontowany, nie renderuj nic
   }
 
   return (
