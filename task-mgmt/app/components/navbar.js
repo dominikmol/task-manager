@@ -22,7 +22,7 @@ export default function Navbar() {
             const password = e.target.password.value;
             await login(email, password);
         } catch (error) {
-            alert("registration failed, check that your details are correct or make sure you don't already have an account");
+            alert("login failed, check that your details are correct or contact support with email if you forgot your password at admin@mail.com");
         }
     }
     if (!isMounted) {
