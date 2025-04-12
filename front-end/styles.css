@@ -132,6 +132,7 @@ body {
     height: 60vh;
     padding: 10px;
     overflow-y: auto;
+    background-color: var(--main-bg);
     border-radius: 24px 0 0 24px;
 }
 
@@ -177,6 +178,7 @@ body {
 }
 
 .task_content_wrapper {
+    background-color: var(--main-bg);
     border-radius: 0 24px 24px 0;
 }
 
