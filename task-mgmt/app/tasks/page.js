@@ -27,7 +27,7 @@ export default function TasksPage() {
           setLoading(false); // kończenie ładowania po wczytaniu danych
         }
         ).catch((error) => {
-          console.error('Error fetching tasks:', error);
+          console.log('Error fetching tasks:', error);
           setLoading(false);
         });
     }
