@@ -42,20 +42,12 @@ export default function TasksPage() {
       <div className="row">
         <div className="col-md-3">
           <div className="d-flex w-100 mb-2">
-            {/* <select className="border_custom button_style btn btn-outline-secondary me-2" defaultValue="">
-              <option value="" disabled hidden>filter</option>
-              <option value="1">to do</option>
-              <option value="2">done</option>
-              <option value="2">all</option>
-            </select> */}
             <select className="border_custom button_style btn btn-outline-secondary me-2" defaultValue="">
               <option value="" disabled hidden>sort</option>
               <option value="1">by date</option>
               <option value="2">by priority</option>
               <option value="2">by name</option>
             </select>
-            {/* <button className="btn btn-outline-secondary me-2">Filter</button>
-          <button className="btn btn-outline-secondary">Sort</button> */}
           </div>
         </div>
         <div className="col-md-9">
