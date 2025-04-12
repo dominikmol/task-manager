@@ -8,6 +8,8 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(pb.authStore.model);
 
+  // nasłuchuje na zmiany w authStore i aktualizuje stan użytkownika
+  // przy każdym wykoaniu logowania, rejestracji lub wylogowania
   useEffect(() => {
     const unsubscribe = pb.authStore.onChange((token, model) => {
       setUser(model);
