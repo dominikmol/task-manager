@@ -73,8 +73,9 @@ export default function TasksPage() {
                 tasks.filter((task) => task.is_done === false).map((task) => (
                   <div className="task p-4" key={task.id}>
                     <h1>{task.task_name}</h1>
-                    <h3>{task.task_lvl}</h3>
-                    <p>{task.task_description.substring(0, 10)}</p>
+                    <h6>task lvl: {task.task_lvl}</h6>
+                    <h6>deadline: {task.finish_before}</h6>
+                    <p>{task.task_description.substring(0, 20)}</p>
                   </div>
                 ))
               ) : (
