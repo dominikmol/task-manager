@@ -25,6 +25,13 @@ export default function AccountEditPage() {
     }
 
     return (
-        <h1>tu będzie user edit</h1>
+        <>
+            {user ? (
+                <h1>tu będzie user edit</h1>
+            ) : (
+                <h1>Error 418 I&apos;m a teapot</h1>
+            )
+            }
+        </>
     );
 }

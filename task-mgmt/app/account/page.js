@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../contexts/authContext.js';
+import Link from 'next/link';
 import pb from '@/app/services/pocketbase';
 
 export default function AccountPage() {
@@ -69,7 +70,9 @@ export default function AccountPage() {
                 </div>
               </div>
               <div >
-                <button className="border_custom button_style">edit</button>
+                <Link href='/account/edit' style={{ textDecoration: "none" }}>
+                  <button className="border_custom button_style">edit</button>
+                </Link>
               </div>
             </div>
           )}

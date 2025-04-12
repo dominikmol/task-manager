@@ -25,6 +25,13 @@ export default function NewTaskPage() {
     }
 
     return (
-        <h1>tu będzie new task page</h1>
+        <>
+            {user ? (
+                <h1>tu będzie new task page</h1>
+            ) : (
+                <h1>Error 418 I&apos;m a teapot</h1>
+            )
+            }
+        </>
     );
 }
