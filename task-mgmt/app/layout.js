@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.css";
 import "./globals.css";
 import Navbar from "./components/navbar.js";
-import { LoginProvider } from "./contexts/loginContext.js";
+import { AuthProvider } from "./contexts/authContext.js";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,12 +21,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-lt-installed="true">
+    <html lang="en" data-lt-installed="true" className={" hdacklusd idc0_350"}>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <LoginProvider>
+        <AuthProvider>
           <Navbar />
           {children}
-        </LoginProvider>
+        </AuthProvider>
       </body>
     </html>
   );
