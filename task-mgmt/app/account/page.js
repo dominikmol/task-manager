@@ -31,7 +31,7 @@ export default function AccountPage() {
           setLoading(false); // kończenie ładowania po wczytaniu danych
         }
         ).catch((error) => {
-          console.error('Error fetching tasks:', error);
+          console.log('Error fetching tasks:', error);
           setLoading(false);
         });
       setAllTasksNumber(tasks.length); // ustawienie liczby wszystkich zadań
@@ -49,26 +49,26 @@ export default function AccountPage() {
   return (
     <div>
       {user ? (
-        <div class="container d-flex flex-grow-1 main">
-          <div class="user_page my-auto main_wrapper d-flex flex-column align-items-center mx-auto border_custom">
-            <div class="stats d-flex justify-content-between my-4 w-75">
-              <div class="stat_info border_custom button_style">open tasks: {openTasksNumber}</div>
-              <div class="stat_info border_custom button_style">closed tasks: {closedTasksNumber}</div>
-              <div class="stat_info border_custom button_style">all tasks: {allTasksNumber}</div>
-              <div class="stat_info border_custom button_style">current lvl: {user.current_lvl}</div>
+        <div className="container d-flex flex-grow-1 main">
+          <div className="user_page my-auto main_wrapper d-flex flex-column align-items-center mx-auto border_custom">
+            <div className="stats d-flex justify-content-between my-4 w-75">
+              <div className="stat_info border_custom button_style">open tasks: {openTasksNumber}</div>
+              <div className="stat_info border_custom button_style">closed tasks: {closedTasksNumber}</div>
+              <div className="stat_info border_custom button_style">all tasks: {allTasksNumber}</div>
+              <div className="stat_info border_custom button_style">current lvl: {user.current_lvl}</div>
             </div>
             <div>
-              <div class="d-flex align-items-center my-4">
-                {/* <img src="assets/person_64dp_EBD478_FILL0_wght200_GRAD0_opsz48.svg" alt="" class="me-3"> */}
-                <p class="border_custom button_style mb-0">name: {user.name}</p>
+              <div className="d-flex align-items-center my-4">
+                {/* <img src="assets/person_64dp_EBD478_FILL0_wght200_GRAD0_opsz48.svg" alt="" className="me-3"> */}
+                <p className="border_custom button_style mb-0">name: {user.name}</p>
               </div>
-              <div class="d-flex align-items-center my-4">
-                {/* <img src="assets/mail_64dp_EBD478_FILL0_wght200_GRAD0_opsz48.svg" alt="" class="me-3"> */}
-                <p class="border_custom button_style mb-0">email: {user.email}</p>
+              <div className="d-flex align-items-center my-4">
+                {/* <img src="assets/mail_64dp_EBD478_FILL0_wght200_GRAD0_opsz48.svg" alt="" className="me-3"> */}
+                <p className="border_custom button_style mb-0">email: {user.email}</p>
               </div>
             </div>
             <div >
-              <button class="border_custom button_style">edit</button>
+              <button className="border_custom button_style">edit</button>
             </div>
           </div>
         </div>
