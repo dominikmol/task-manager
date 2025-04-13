@@ -1,11 +1,11 @@
 'use client';
 
-// import Image from "next/image";
+import Image from "next/image";
 // import styles from "./page.module.css";
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from './contexts/authContext';
+import { useAuth } from '@/app/contexts/authContext.js';
 
 export default function Home() {
   const { user, register } = useAuth();
@@ -38,12 +38,15 @@ export default function Home() {
       <div className="main_wrapper border_custom d-flex align-items-center mx-auto">
         <form className="login_form_wrapper mx-auto" onSubmit={onSubmit}>
           <div className="input_wrapper d-flex align-items-center">
+            <Image src="/img/account.svg" width={64} height={64} alt='account' />
             <input type="text" name="username" id="username" className="border_custom login_form" placeholder="username" />
           </div>
           <div className="input_wrapper d-flex align-items-center my-4">
+            <Image src="/img/email.svg" width={64} height={64} alt='email' />
             <input type="email" name="email" id="email" className="border_custom login_form" placeholder="email" />
           </div>
           <div className="input_wrapper d-flex align-items-center">
+            <Image src="/img/password.svg" width={64} height={64} alt='password' />
             <input type="password" name="password" id="password" className="border_custom login_form" placeholder="password" />
           </div>
           <div className="input_wrapper text-center mt-4">

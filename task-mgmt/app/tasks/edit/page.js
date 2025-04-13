@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { useAuth } from '../contexts/authContext.js';
+import { useAuth } from '@/app/contexts/authContext.js';
 import pb from '@/app/services/pocketbase';
 
 export default function TaskEditPage() {

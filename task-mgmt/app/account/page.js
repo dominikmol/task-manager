@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '../contexts/authContext.js';
 import Link from 'next/link';
 import pb from '@/app/services/pocketbase';
+import { useAuth } from '@/app/contexts/authContext.js';
+import Image from 'next/image';
 
 export default function AccountPage() {
   const { user } = useAuth();
@@ -15,7 +16,6 @@ export default function AccountPage() {
   const [closedTasksNumber, setClosedTasksNumber] = useState(0);
   const [allTasksNumber, setAllTasksNumber] = useState(0);
   const [userData, setUserData] = useState([]);
-  // const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setIsMounted(true); // opóźnienie renderowania komponentu do momentu, by się poprawnie wczytywało po odświeżeniu
@@ -25,11 +25,9 @@ export default function AccountPage() {
     if (!user) {
       router.push('/');
     } else {
-      // setLoading(true); // stanu ładowania by czekało na wczytanie danych
       pb.collection('tasks').getFullList({ filter: `user_id = "${user.id}"` })
         .then((data) => {
           setTasks(data);
-          // setLoading(false); // kończenie ładowania po wczytaniu danych
           setAllTasksNumber(tasks.length); // ustawienie liczby wszystkich zadań
           const openTasks = tasks.filter(task => task.is_done === false).length; // filtracja zadań otwartych
           setOpenTasksNumber(openTasks); // ustawienie liczby zadań otwartych
@@ -38,7 +36,6 @@ export default function AccountPage() {
         }
         ).catch((error) => {
           console.log('Error fetching tasks:', error);
-          // setLoading(false);
         });
 
     }
@@ -73,17 +70,20 @@ export default function AccountPage() {
             </div>
             <div>
               <div className="d-flex align-items-center my-4">
-                {/* <img src="assets/person_64dp_EBD478_FILL0_wght200_GRAD0_opsz48.svg" alt="" className="me-3"> */}
+                <Image src="/img/account.svg" width={64} height={64} alt='account' className="me-3" />
                 <p className="border_custom button_style mb-0">name: {userData.name}</p>
               </div>
               <div className="d-flex align-items-center my-4">
-                {/* <img src="assets/mail_64dp_EBD478_FILL0_wght200_GRAD0_opsz48.svg" alt="" className="me-3"> */}
+                <Image src="/img/email.svg" width={64} height={64} alt='email' className="me-3" />
                 <p className="border_custom button_style mb-0">email: {userData.email}</p>
               </div>
             </div>
             <div >
               <Link href='/account/edit' style={{ textDecoration: "none" }}>
-                <button className="border_custom button_style">edit</button>
+                <button className="border_custom button_style">
+                  <Image src="/img/edit.svg" width={32} height={32} alt='edit' />
+                  edit
+                </button>
               </Link>
             </div>
           </div>
