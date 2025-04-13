@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from './contexts/authContext';
+import { useAuth } from '@/app/contexts/authContext.js';
 
 export default function Home() {
   const { user, register } = useAuth();

@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '../contexts/authContext.js';
 import Link from 'next/link';
 import pb from '@/app/services/pocketbase';
+import { useAuth } from '@/app/contexts/authContext.js';
 import Image from 'next/image';
 
 export default function AccountPage() {
