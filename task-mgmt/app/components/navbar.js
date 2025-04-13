@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/app/contexts/authContext.js';
 import Image from 'next/image';
@@ -10,7 +9,6 @@ import Image from 'next/image';
 export default function Navbar() {
     const [isMounted, setIsMounted] = useState(false);
     const { user, login, logout } = useAuth();
-    const router = useRouter();
 
     useEffect(() => {
         setIsMounted(true);

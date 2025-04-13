@@ -208,10 +208,6 @@ export default function TasksPage() {
                   <h1>No tasks available</h1>
                 </div>
               ))}
-            {/* <div className="task active p-4">
-              <h1>Task 1</h1>
-              <p>lorem ispum</p>
-            </div> */}
           </div>
         </div>
         <div className="col-md-9 task_content_wrapper d-flex flex-column flex-grow-1 border_custom p-3">
@@ -255,7 +251,6 @@ export default function TasksPage() {
         </div>
       </div>
       <div className="input_wrapper text-end mt-2">
-        {/* <input type="button" value="New Task" className="border_custom button_style" /> */}
         <Link href="/tasks/new" style={{ textDecoration: "none" }}>
           <button className="border_custom button_style">
             <Image src="/img/task_done.svg" width={32} height={32} alt='task done' /> New Task
