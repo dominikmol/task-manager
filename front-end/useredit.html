@@ -9,7 +9,7 @@
 </head>
 <body>
     <!-- Header -->
-    <div class="border_custom container-fluid header">
+    <div class="container-fluid header border_custom">
         <div class="row align-items-center">
             <div class="logo col-3">
                 <span class="logo">QUESTIFY</span>
@@ -25,16 +25,40 @@
     </div>
 
     <!-- Main -->
-     <div class="container main d-flex flex-grow-1 main_wrappereditlog" id="newtask">
-        <div class="main_wrapperedit border_custom d-flex flex-column align-items-center m-auto">
-        
-         
-        
-        
-        
-         </div>
-           
-        
-     </div>
+    <div class="container main">
+        <div class="main_edit border_custom d-flex align-items-center mx-auto">
+          <form class="login_form_wrapper mx-auto">
+            
+            <div class="input_wrapper d-flex align-items-center my-4">
+                <img src="assets/mail_64dp_EBD478_FILL0_wght200_GRAD0_opsz48.svg" alt="" class="me-3">
+                <input type="email" name="email" id="email" class="border_custom login_form" placeholder="email">
+            </div>
+
+            <div class="input_wrapper d-flex align-items-center my-4">
+                <img src="assets/person_64dp_EBD478_FILL0_wght200_GRAD0_opsz48.svg" alt="" class="me-3">
+                <input type="text" name="username" id="username" class="border_custom login_form" placeholder="username">
+            </div>
+            <div class="input_wrapper d-flex align-items-center">
+              <img src="assets/lock_64dp_EBD478_FILL0_wght200_GRAD0_opsz48.svg" alt="" class="me-3">
+              <input type="password" name="password" id="password" class="border_custom login_form" placeholder="password">
+            </div>
+            
+            <div class="input_wrapper d-flex justify-content-center gap-2 mt-5">
+              
+              <button type="button" class="border_custom button_style">
+                <img src="assets\cancel_24dp_FFFF55_FILL0_wght200_GRAD0_opsz24.svg" alt="ikona" style="vertical-align: middle; margin-right: 10px;">
+                cancel
+               </button>
+              <button type="button" class="border_custom button_style">
+                <img src="assets\save_24dp_FFFF55_FILL0_wght200_GRAD0_opsz24.svg" alt="ikona" style="vertical-align: middle; margin-right: 10px;">
+                edit
+              </button>
+            
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      
 </body>
 </html>
