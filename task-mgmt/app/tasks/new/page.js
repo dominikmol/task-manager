@@ -21,6 +21,27 @@ export default function NewTaskPage() {
         }
     }, [user, router]);
 
+    function handleSubmit(e) {
+        e.preventDefault();
+        const date = e.target.date.value;
+        const taskLevel = e.target.taskLevel.value;
+        const description = e.target.description.value;
+        const taskname = e.target.taskname.value;
+        pb.collection('tasks').create({
+            task_name: taskname,
+            task_lvl: taskLevel,
+            finish_before: date,
+            task_description: description,
+            user_id: user.id,
+        })
+            .then((data) => {
+                router.push('/tasks');
+            })
+            .catch((error) => {
+                console.log('Error creating task:', error);
+            })
+    }
+
     if (!isMounted) {
         return null; // jeśli nie jest zamontowany, nie renderuj nic
     }
