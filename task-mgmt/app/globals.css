@@ -1,5 +1,7 @@
 :root {
   --border-color: #EBD478;
+  --task-active-border: #AB76DA;
+  --task-active-gradient-bottom: rgba(160, 144, 140, 0.21);
   --non-active-background: #4B3162;
   --task-bg: rgba(58, 52, 51, 0.21);
   --task-bg-hover: rgba(120, 120, 120, 0.50);
@@ -8,7 +10,9 @@
 }
 
 body {
-  background-color: black;
+  background-image: url("./img/stars-1654074.jpg");
+  background-size: cover;
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -59,6 +63,12 @@ body {
   transition-duration: .3s;
 }
 
+.button_style:hover {
+  border: 2px solid var(--non-active-background) !important;
+  background-color: var(--task-bg-hover);
+  transition-duration: .3s;
+}
+
 .login_form_wrapper input:hover {
   border: 2px solid var(--non-active-background) !important;
   background-color: var(--task-bg-hover);
@@ -75,6 +85,7 @@ body {
 }
 
 .main .main_wrapper {
+  position: relative;
   width: 80%;
   height: 50vh;
   border-radius: 20px;
@@ -96,4 +107,82 @@ body {
 
 .buttons_task {
   width: 10%;
+}
+
+.lvl-panel {
+  border-radius: 24px;
+}
+
+.progress {
+  background-color: transparent;
+  border-radius: 24px;
+}
+
+.lvl-panel .level-bar {
+  background-color: #a315a3;
+  color: white;
+  font-weight: 400;
+}
+
+.background {
+  background-color: rgba(41, 41, 41, 0.75);
+}
+
+.task_wrapper {
+  height: 60vh;
+  padding: 10px 20px 10px 10px;
+  overflow: scroll;
+  border-radius: 24px;
+}
+
+.task_wrapper .task {
+  border: 2px solid var(--non-active-background);
+  background-color: var(--task-bg);
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 10%;
+  border-radius: 24px;
+  transition-duration: .3s;
+}
+
+.task_wrapper .task:hover {
+  background-color: var(--task-bg-hover);
+  transition-duration: .3s;
+}
+
+.task_wrapper .task:last-child {
+  margin-bottom: 0;
+}
+
+.task_wrapper .task.active {
+  background-image: linear-gradient(var(--task-bg) 0%, var(--task-active-gradient-bottom) 100%);
+  border: 2px solid var(--task-active-border);
+}
+
+.task_wrapper .task.active h1{
+  color: var(--task-active-border);
+}
+
+.task_content_wrapper {
+  border-radius: 24px;
+}
+
+.task_content {
+  color: white;
+}
+
+.task_content .task_title { 
+  font-size: 2rem;
+}
+
+.main_wrappereditlog {
+  height: 50px;
+}
+
+.main_wrapperedit {
+  width: 80%;
+  height: 75vh;
+  border-radius: 20px;
+  background-color: var(--main-bg);
 }
