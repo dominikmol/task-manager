@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useAuth } from '../contexts/authContext.js';
 import pb from '@/app/services/pocketbase';
+import Image from 'next/image.js';
 
 export default function TasksPage() {
   const { user } = useAuth();
@@ -217,6 +218,7 @@ export default function TasksPage() {
             <>
               <div className="task_edit ms-auto">
                 <button className="border_custom button_style">
+                  <Image src="/img/edit.svg" width={32} height={32} alt='edit' />
                   <i className="bi bi-trash"></i> edit
                 </button>
               </div>
@@ -232,9 +234,11 @@ export default function TasksPage() {
 
               <div className="d-flex ms-auto gap-2 mt-auto">
                 <button className="border_custom button_style" onClick={() => handleTaskDelete(selectedTask['id'])}>
+                  <Image src="/img/delete.svg" width={32} height={32} alt='delete' />
                   <i className="bi bi-trash"></i> delete
                 </button>
                 <button className="border_custom button_style" onClick={() => handleTaskDone(selectedTask)}>
+                  <Image src="/img/task_done.svg" width={32} height={32} alt='task done' />
                   <i className="bi bi-check"></i> done
                 </button>
               </div>
@@ -248,7 +252,10 @@ export default function TasksPage() {
         </div>
       </div>
       <div className="input_wrapper text-end mt-2">
-        <input type="button" value="New Task" className="border_custom button_style" />
+        {/* <input type="button" value="New Task" className="border_custom button_style" /> */}
+        <button className="border_custom button_style">
+          <Image src="/img/task_done.svg" width={32} height={32} alt='task done' /> New Task
+        </button>
       </div>
     </div>
   );

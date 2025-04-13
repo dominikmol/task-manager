@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/app/contexts/authContext.js';
+import Image from 'next/image';
 
 
 export default function Navbar() {
@@ -41,9 +42,13 @@ export default function Navbar() {
                     {user ? (
                         <div className="d-flex my-0 justify-content-end">
                             <Link href="/account">
-                                <button className="border_custom button_style mx-4">my account</button>
+                                <button className="border_custom button_style mx-4">
+                                    <Image src="/img/account2.svg" width={32} height={32} alt='account' />my account
+                                </button>
                             </Link>
-                            <button className="border_custom button_style" onClick={logout}>logout</button>
+                            <button className="border_custom button_style" onClick={logout}>
+                                <Image src="/img/logout.svg" width={32} height={32} alt='logoout' /> logout
+                            </button>
                         </div>
                     ) : (
                         <form className="d-flex my-0 justify-content-end" onSubmit={onSubmit}>

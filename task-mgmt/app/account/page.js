@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '../contexts/authContext.js';
 import Link from 'next/link';
 import pb from '@/app/services/pocketbase';
+import Image from 'next/image';
 
 export default function AccountPage() {
   const { user } = useAuth();
@@ -74,16 +75,21 @@ export default function AccountPage() {
             <div>
               <div className="d-flex align-items-center my-4">
                 {/* <img src="assets/person_64dp_EBD478_FILL0_wght200_GRAD0_opsz48.svg" alt="" className="me-3"> */}
+                <Image src="/img/account.svg" width={64} height={64} alt='account' className="me-3" />
                 <p className="border_custom button_style mb-0">name: {userData.name}</p>
               </div>
               <div className="d-flex align-items-center my-4">
                 {/* <img src="assets/mail_64dp_EBD478_FILL0_wght200_GRAD0_opsz48.svg" alt="" className="me-3"> */}
+                <Image src="/img/email.svg" width={64} height={64} alt='email' className="me-3" />
                 <p className="border_custom button_style mb-0">email: {userData.email}</p>
               </div>
             </div>
             <div >
               <Link href='/account/edit' style={{ textDecoration: "none" }}>
-                <button className="border_custom button_style">edit</button>
+                <button className="border_custom button_style">
+                  <Image src="/img/edit.svg" width={32} height={32} alt='edit' />
+                  edit
+                </button>
               </Link>
             </div>
           </div>
