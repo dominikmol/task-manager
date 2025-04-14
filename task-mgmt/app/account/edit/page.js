@@ -1,19 +1,15 @@
-
 'use client';
 
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { useAuth } from '@/app/contexts/authContext.js';
+import { useAuth, logout } from '@/app/contexts/authContext.js';
+import Image from 'next/image';
 import pb from '@/app/services/pocketbase';
 
 export default function AccountEditPage() {
-  const { user, setUser } = useAuth(); 
+  const { user } = useAuth();
   const [isMounted, setIsMounted] = useState(false);
-  const [email, setEmail] = useState(user?.email || '');
-  const [username, setUsername] = useState(user?.username || '');
-  const [password, setPassword] = useState(''); 
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);
+  const [userData, setUserData] = useState([]);
   const router = useRouter();
 
   useEffect(() => {
@@ -26,79 +22,100 @@ export default function AccountEditPage() {
     }
   }, [user, router]);
 
+  useEffect(() => {
+    if (user) {
+      pb.collection('users').getOne(user.id)
+        .then((data) => {
+          setUserData(data);
+        })
+        .catch((error) => {
+          console.log('Error fetching user data:', error);
+        });
+    }
+  }, [user, userData]);
+
   if (!isMounted) {
     return null; // jeśli komponent nie jest zamontowany, nie renderuj nic
   }
 
-  const handleSubmit = async (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
-    setError(null);
-    setSuccess(null);
-
-    
-    const updateData = {
-      email,
-      username,
-    };
-
-    
-    if (password) {
-      updateData.password = password;
+    const username = e.target.username.value;
+    const password = e.target.password.value;
+    const email = e.target.email.value;
+    console.log('username', username);
+    console.log('password', password);
+    console.log('email', email);
+    if (!password) {
+      const userid = user.id;
+      logout();
+      console.log("haslo puste");
+      pb.collection('users').update(userid, {
+        email: email,
+        name: username,
+      })
+        .then(() => {
+          router.push('/account');
+        })
+        .catch((error) => {
+          console.log('Error updating user:', error);
+        });
+    } else {
+      const userid = user.id;
+      logout();
+      console.log("haslo nowe");
+      pb.collection('users').update(userid, {
+        email: email,
+        name: username,
+        password: password,
+      })
+        .then(() => {
+          console.log("haslo zmienione na " + password);
+          router.push('/account');
+        })
+        .catch((error) => {
+          console.log('Error updating user:', error);
+        });
     }
-
-    try {
-      const updatedUser = await pb.collection('users').update(user.id, updateData);
-      
-      if (setUser) {
-        setUser(updatedUser);
-      }
-      setSuccess('User data has been updated ');
-    } catch (err) {
-      console.error(err);
-      setError('There was a problem with updating the data.');
-    }
-  };
+  }
 
   return (
-    <div className="container mt-5">
-      <h1>Edycja konta</h1>
-      {error && <div className="alert alert-danger">{error}</div>}
-      {success && <div className="alert alert-success">{success}</div>}
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="username" className="form-label">Nazwa użytkownika</label>
-          <input 
-            type="text" 
-            className="form-control"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
+    <>
+      {user ? (
+        <div className="container d-flex flex-grow-1 main">
+          <div className="user_page my-auto main_wrapper d-flex flex-column align-items-center mx-auto border_custom">
+            <form onSubmit={handleSubmit} className="login_form_wrapper mx-auto">
+              <div className="input_wrapper d-flex align-items-center my-4">
+              </div>
+              <div className="input_wrapper d-flex align-items-center my-4">
+                <Image src="/img/email.svg" width={64} height={64} alt='email' className="me-3" />
+                <input type="text" name="username" id="username" className="border_custom login_form" placeholder="username" defaultValue={userData.name} />
+              </div>
+              <div className="input_wrapper d-flex align-items-center my-4">
+                <Image src="/img/account.svg" width={64} height={64} alt='account' className="me-3" />
+                <input type="text" name="email" id="email" className="border_custom login_form" placeholder="email" defaultValue={userData.email} />
+              </div>
+              <div className="input_wrapper d-flex align-items-center">
+                <Image src="/img/password.svg" width={64} height={64} alt='password' className="me-3" />
+                <input type="password" name="password" id="password" className="border_custom login_form" placeholder="password" />
+              </div>
+              <div className="input_wrapper d-flex justify-content-center gap-2 mt-5">
+                <button className="border_custom button_style" type="reset">
+                  <Image src="/img/cancel.svg" width={32} height={32} alt='cancel' />
+                  cancel
+                </button>
+                <button className="border_custom button_style" type="submit">
+                  <Image src="/img/save.svg" width={32} height={32} alt='save' />
+                  save
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label">Adres e-mail</label>
-          <input 
-            type="email"
-            className="form-control"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="password" className="form-label">
-            Nowe hasło <small className="text-muted">(pozostaw puste, jeśli nie chcesz zmieniać)</small>
-          </label>
-          <input 
-            type="password"
-            className="form-control"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">Zapisz zmiany</button>
-      </form>
-    </div>
+      ) : (
+        <h1>Error 418 I&apos;m a teapot</h1>
+      )
+      }
+    </>
   );
 }
