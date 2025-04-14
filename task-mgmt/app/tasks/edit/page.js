@@ -7,6 +7,7 @@ import pb from '@/app/services/pocketbase';
 
 export default function TaskEditPage() {
     const { user } = useAuth();
+    const [task, setTask] = useState(null);
     const [isMounted, setIsMounted] = useState(false);
     const router = useRouter();
 
@@ -19,6 +20,15 @@ export default function TaskEditPage() {
             router.push('/');
         }
     }, [user, router]);
+
+    useEffect(() => {
+        const storedTask = sessionStorage.getItem('taskToEdit');
+        if (storedTask) {
+            setTask(JSON.parse(storedTask));
+        } else {
+            router.push('/tasks');
+        }
+    }, [router]);
 
     if (!isMounted) {
         return null; // jeśli nie jest zamontowany, nie renderuj nic
