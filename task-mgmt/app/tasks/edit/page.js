@@ -45,24 +45,6 @@ export default function TaskEditPage() {
         const description = e.target.description.value;
         const taskname = e.target.taskname.value;
         const isoDate = new Date(date).toISOString();
-        console.log('Task name:', taskname);
-        console.log('Task level:', taskLevel);
-        console.log('Task description:', description);
-        console.log('Task date:', isoDate);
-        console.log('User ID:', user.id);
-        // pb.collection('tasks').create({
-        //     task_name: taskname,
-        //     task_lvl: taskLevel,
-        //     finish_before: date,
-        //     task_description: description,
-        //     user_id: user.id,
-        // })
-        //     .then((data) => {
-        //         router.push('/tasks');
-        //     })
-        //     .catch((error) => {
-        //         console.log('Error creating task:', error);
-        //     })
         pb.collection('tasks').update(task['id'], {
             task_name: taskname,
             task_lvl: taskLevel,
