@@ -181,11 +181,11 @@ export default function TasksPage() {
           </div>
         </div>
         <div className="col-md-9 d-flex align-items-center mb-3">
-          <div class="current_lvl d-flex align-items-center justify-content-center">
+          <div className="current_lvl d-flex align-items-center justify-content-center">
             <svg viewBox="0 0 100 100" width="200" height="205">
-              <polygon points="50,0 100,25 100,75 50,100 0,75 0,25" fill="rgba(41, 41, 41, 0.75)" stroke="#EBD478" stroke-width="5" transform="rotate(180, 50, 50)"/>
+              <polygon points="50,0 100,25 100,75 50,100 0,75 0,25" fill="rgba(41, 41, 41, 0.75)" stroke="#EBD478" strokeWidth="5" transform="rotate(180, 50, 50)" />
             </svg>
-            <p class="mb-0 progress-text">{userData.current_lvl}<sub>lvl</sub></p>
+            <p className="mb-0 progress-text">{userData.current_lvl}<sub>lvl</sub></p>
           </div>
           <div className="lvl-panel border_custom w-100">
             <div className="card-body">
