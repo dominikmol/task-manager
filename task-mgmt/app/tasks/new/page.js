@@ -55,7 +55,7 @@ export default function NewTaskPage() {
                             <div className="col-md-8 offset-2 d-flex flex-column">
                                 <div className="inputs_new d-flex mt-4 justify-content-between">
                                     <input type="text" placeholder="taskname" id='taskname' name='taskname' className="border_custom login_form" />
-                                    <input className="border_custom login_form" type="date" name='date' />
+                                    <input className="border_custom login_form" type="datetime-local" name='date' />
                                     <select name="taskLevel" className="border_custom login_form" defaultValue="">
                                         <option value="" disabled hidden>task LVL</option>
                                         <option value="1">very easy</option>
