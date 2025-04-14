@@ -111,6 +111,12 @@ export default function TasksPage() {
         console.log('Error deleting task:', error);
       });
   }
+
+  function handleEditDone(task) {
+    sessionStorage.setItem("taskToEdit", JSON.stringify(task));
+    router.push("/tasks/edit");
+  }
+
   function handleTaskDone(task) {
     pb.collection('tasks').update(task['id'], { is_done: true })
       .then(() => {
@@ -215,9 +221,9 @@ export default function TasksPage() {
             <>
               <div className="task_edit ms-auto">
                 <Link href="/tasks/edit" style={{ textDecoration: "none" }}>
-                  <button className="border_custom button_style">
+                  <button className="border_custom button_style" onClick={() => handleEditDone(selectedTask)}>
                     <Image src="/img/edit.svg" width={32} height={32} alt='edit' />
-                    <i className="bi bi-trash"></i> edit
+                    edit
                   </button>
                 </Link>
               </div>
@@ -234,11 +240,11 @@ export default function TasksPage() {
               <div className="d-flex ms-auto gap-2 mt-auto">
                 <button className="border_custom button_style" onClick={() => handleTaskDelete(selectedTask['id'])}>
                   <Image src="/img/delete.svg" width={32} height={32} alt='delete' />
-                  <i className="bi bi-trash"></i> delete
+                  delete
                 </button>
                 <button className="border_custom button_style" onClick={() => handleTaskDone(selectedTask)}>
                   <Image src="/img/task_done.svg" width={32} height={32} alt='task done' />
-                  <i className="bi bi-check"></i> done
+                  done
                 </button>
               </div>
             </>
