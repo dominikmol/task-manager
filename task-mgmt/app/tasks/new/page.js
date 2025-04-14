@@ -56,16 +56,17 @@ export default function NewTaskPage() {
                                 <div className="inputs_new d-flex mt-4 justify-content-between">
                                     <input type="text" placeholder="taskname" id='taskname' name='taskname' className="border_custom login_form" />
                                     <input className="border_custom login_form" type="date" name='date' />
-                                    <select className="border_custom login_form" name="taskLevel" id="data">
-                                        <option value="volvo">task LVL</option>
-                                        <option value="volvo">1</option>
-                                        <option value="saab">2</option>
-                                        <option value="opel">3</option>
-                                        <option value="audi">4</option>
+                                    <select name="taskLevel" className="border_custom login_form" defaultValue="">
+                                        <option value="" disabled hidden>task LVL</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
                                     </select>
                                 </div>
                                 <div className="w-100"></div>
-                                <textarea placeholder="description" name="description" className="mt-5 border_custom login_form mx-auto w-100" style={{resize: 'none'}}></textarea>
+                                <textarea placeholder="description" name="description" className="mt-5 border_custom login_form mx-auto w-100" style={{ resize: 'none' }}></textarea>
                             </div>
                             <div className="col-md-2 mt-auto mx-auto">
                                 <div className="d-flex flex-column">
