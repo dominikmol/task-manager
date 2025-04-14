@@ -49,40 +49,40 @@ export default function NewTaskPage() {
     return (
         <>
             {user ? (
-            <div class="container main my-auto" id="newtask">
-                <div class="user_page main_wrapper border_custom login_form mx-auto d-flex flex-column">
-                    <form action="" class="row justify-content-center flex-grow-1">
-                        <div class="col-md-8 offset-2 d-flex flex-column">
-                            <div class="inputs_new d-flex mt-4 justify-content-between">
-                                <input type="text" placeholder="taskname" class="border_custom login_form" />
-                                <input class="border_custom login_form" type="date" />
-                                <select class="border_custom login_form" name="cars" id="data">
-                                    <option value="volvo">task LVL</option>
-                                    <option value="volvo">1</option>
-                                    <option value="saab">2</option>
-                                    <option value="opel">3</option>
-                                    <option value="audi">4</option>
-                                </select>
+                <div class="container main my-auto" id="newtask">
+                    <div class="user_page main_wrapper border_custom login_form mx-auto d-flex flex-column">
+                        <form action="" class="row justify-content-center flex-grow-1">
+                            <div class="col-md-8 offset-2 d-flex flex-column">
+                                <div class="inputs_new d-flex mt-4 justify-content-between">
+                                    <input type="text" placeholder="taskname" class="border_custom login_form" />
+                                    <input class="border_custom login_form" type="date" />
+                                    <select class="border_custom login_form" name="cars" id="data">
+                                        <option value="volvo">task LVL</option>
+                                        <option value="volvo">1</option>
+                                        <option value="saab">2</option>
+                                        <option value="opel">3</option>
+                                        <option value="audi">4</option>
+                                    </select>
+                                </div>
+                                <div class="w-100"></div>
+                                <textarea placeholder="description" name="" class="mt-5 border_custom login_form mx-auto w-100" style="resize: none;"></textarea>
                             </div>
-                            <div class="w-100"></div>
-                            <textarea placeholder="description" name="" class="mt-5 border_custom login_form mx-auto w-100" style="resize: none;"></textarea>
-                        </div>
-                        <div class="col-md-2 mt-auto mx-auto">
-                            <div class="d-flex flex-column">
-                                <button class="border_custom login_form w-100 mb-3" type="reset">
-                                    <img src="assets/cancel_24dp_FFFF55_FILL0_wght200_GRAD0_opsz24.svg" alt="" style="">
-                                    cancel
-                                </button>
+                            <div class="col-md-2 mt-auto mx-auto">
+                                <div class="d-flex flex-column">
+                                    <button class="border_custom login_form w-100 mb-3" type="reset">
+                                        <Image src="/img/cancel.svg" width={32} height={32} alt='cancel' />
+                                        cancel
+                                    </button>
 
-                                <button class="border_custom login_form w-100" type="submit">
-                                    <img src="assets/save_24dp_FFFF55_FILL0_wght200_GRAD0_opsz24.svg" alt="" style="">
-                                    save
-                                </button>
+                                    <button class="border_custom login_form w-100" type="submit">
+                                        <Image src="/img/save.svg" width={32} height={32} alt='save' />
+                                        save
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
-            </div>
             ) : (
                 <h1>Error 418 I&apos;m a teapot</h1>
             )
