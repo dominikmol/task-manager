@@ -186,7 +186,7 @@ export default function TasksPage() {
               <div className="d-flex align-items-center text-center progress-absolute">
                 <p className='mb-0 mx-auto align-self-center progress-text'>{userData.current_xp}XP/{userData.current_max_xp}XP ({parseInt(userLvlP)}%)</p>
                 <div className="progress flex-grow-1" style={{ height: '30px' }}>
-                  <div className="progress-bar level-bar" role="progressbar" style={{ width: `${parseInt(userLvlP)}` }} aria-valuenow={parseInt(userLvlP)} aria-valuemin="0" aria-valuemax={userData.current_max_xp}></div>
+                  <div className="progress-bar level-bar" role="progressbar" style={{ width: `${parseInt(userLvlP)}%` }} aria-valuenow={parseInt(userLvlP)} aria-valuemin="0" aria-valuemax={userData.current_max_xp}></div>
                 </div>
               </div>
             </div>
