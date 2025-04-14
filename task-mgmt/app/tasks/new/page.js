@@ -54,9 +54,9 @@ export default function NewTaskPage() {
                         <form action="" class="row justify-content-center flex-grow-1">
                             <div class="col-md-8 offset-2 d-flex flex-column">
                                 <div class="inputs_new d-flex mt-4 justify-content-between">
-                                    <input type="text" placeholder="taskname" class="border_custom login_form" />
-                                    <input class="border_custom login_form" type="date" />
-                                    <select class="border_custom login_form" name="cars" id="data">
+                                    <input type="text" placeholder="taskname" id='taskname' name='taskname' class="border_custom login_form" />
+                                    <input class="border_custom login_form" type="date" name='date' />
+                                    <select class="border_custom login_form" name="taskLevel" id="data">
                                         <option value="volvo">task LVL</option>
                                         <option value="volvo">1</option>
                                         <option value="saab">2</option>
