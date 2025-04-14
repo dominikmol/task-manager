@@ -43,37 +43,28 @@ export default function AccountEditPage() {
     const username = e.target.username.value;
     const oldPassword = e.target.oldPassword.value;
     const newPassword = e.target.password.value;
+    const userid = user.id;
+    console.log('User ID:', userid);
 
-    if (password !== '') {
-      await pb.collection('users').update(user.id, {
+    try {
+      const updatedData = {
         name: username,
-        oldPassword: oldPassword,
-        password: newPassword,
-        passwordConfirm: newPassword,
-      })
-        .then(async () => {
-          const updatedUser = await pb.collection('users').getOne(user.id);
-          console.log('Updated user:', updatedUser);
-          setUser(updatedUser);
-          router.push('/');
-        })
-        .catch((error) => {
-          console.log('Error updating user data:', error);
-        });
+      };
 
-    } else {
-      await pb.collection('users').update(user.id, {
-        name: username,
-      })
-        .then(async () => {
-          const updatedUser = await pb.collection('users').getOne(user.id);
-          console.log('Updated user:', updatedUser);
-          setUser(updatedUser);
-          router.push('/=');
-        })
-        .catch((error) => {
-          console.log('Error updating user data:', error);
-        });
+      if (newPassword !== '') {
+        updatedData.oldPassword = oldPassword;
+        updatedData.password = newPassword;
+        updatedData.passwordConfirm = newPassword;
+      }
+
+      await pb.collection('users').update(userid, updatedData);
+
+      alert("you will be logged out, please log in again to see the changes");
+      logout();
+      router.push('/');
+
+    } catch (error) {
+      console.error('Error updating user data:', error);
     }
   }
 
@@ -87,12 +78,8 @@ export default function AccountEditPage() {
               <div className="input_wrapper d-flex align-items-center my-4">
               </div>
               <div className="input_wrapper d-flex align-items-center my-4">
-                <Image src="/img/email.svg" width={64} height={64} alt='email' className="me-3" />
+                <Image src="/img/account.svg" width={64} height={64} alt='username' className="me-3" />
                 <input type="text" name="username" id="username" className="border_custom login_form" placeholder="username" defaultValue={userData.name} />
-              </div>
-              <div className="input_wrapper d-flex align-items-center my-4">
-                <Image src="/img/account.svg" width={64} height={64} alt='account' className="me-3" />
-                <input type="text" name="email" id="email" className="border_custom login_form" placeholder="email" defaultValue={userData.email} />
               </div>
               <div className="input_wrapper d-flex align-items-center">
                 <Image src="/img/password.svg" width={64} height={64} alt='password' className="me-3" />
