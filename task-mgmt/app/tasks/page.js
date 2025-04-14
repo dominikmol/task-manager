@@ -185,7 +185,7 @@ export default function TasksPage() {
             <div className="card-body">
               <div className="d-flex align-items-center">
                 <div className="progress flex-grow-1" style={{ height: '30px' }}>
-                  <div className="progress-bar level-bar" role="progressbar" style={{ width: '${userLvlP}%' }} aria-valuenow={userLvlP} aria-valuemin="0" aria-valuemax="100">{userLvlP}%
+                  <div className="progress-bar level-bar" role="progressbar" style={{ width: '${parseInt(userLvlP)}%' }} aria-valuenow={parseInt(userLvlP)} aria-valuemin="0" aria-valuemax="100">{userData.current_xp}XP/{userData.current_max_xp}XP
                   </div>
                 </div>
               </div>
