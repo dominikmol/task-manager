@@ -27,10 +27,11 @@ export default function NewTaskPage() {
         const taskLevel = e.target.taskLevel.value;
         const description = e.target.description.value;
         const taskname = e.target.taskname.value;
+        const isoDate = new Date(date).toISOString();
         pb.collection('tasks').create({
             task_name: taskname,
             task_lvl: taskLevel,
-            finish_before: date,
+            finish_before: isoDate,
             task_description: description,
             user_id: user.id,
         })
