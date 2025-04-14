@@ -211,5 +211,8 @@ body {
     height: 50vh;
     border-radius: 20px;
     background-color: var(--main-bg);
+}
 
+textarea.login_form {
+    flex: 1;
 }
