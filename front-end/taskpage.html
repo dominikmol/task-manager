@@ -59,11 +59,17 @@
           <button class="btn btn-outline-secondary">Sort</button>
         </div>
       </div>
-      <div class="col-md-9">
-        <div class="lvl-panel border_custom mb-3">
+      <div class="col-md-9 d-flex align-items-center mb-3">
+        <div class="current_lvl d-flex align-items-center justify-content-center">
+          <svg viewBox="0 0 100 100" width="200" height="200">
+            <polygon points="50,0 100,25 100,75 50,100 0,75 0,25" fill="rgba(41, 41, 41, 0.75)" stroke="#EBD478" stroke-width="5" transform="rotate(180, 50, 50)"/>
+          </svg>
+          <p class="mb-0 progress-text">1<sub>lvl</sub></p>
+        </div>
+        <div class="lvl-panel border_custom w-100">
           <div class="card-body">
             <div class="d-flex align-items-center">
-              <div class="progress flex-grow-1" style="height: 30px;">
+              <div class="progress flex-grow-1" style="height: 25px;">
                 <div class="progress-bar level-bar" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%
                 </div>
               </div>

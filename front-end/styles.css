@@ -110,12 +110,12 @@ body {
 }
 
 .lvl-panel {
-    border-radius: 24px;
+    border-radius: 0 24px 24px 0;
 }
 
 .progress {
     background-color: transparent;
-    border-radius: 24px;
+    border-radius: 0 24px 24px 0;
 }
 
 .lvl-panel .level-bar {
@@ -216,3 +216,19 @@ body {
 textarea.login_form {
     flex: 1;
 }
+
+
+.current_lvl {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}  
