@@ -20,8 +20,8 @@ export const AuthProvider = ({ children }) => {
   const register = async (email, username, password) => {
     try {
       const newUser = await pb.collection('users').create({
-        email,
-        password,
+        email: email,
+        password: password,
         passwordConfirm: password,
         name: username,
         current_lvl: 1,
@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, register, login, logout }}>
+    <AuthContext.Provider value={{ user, setUser, register, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

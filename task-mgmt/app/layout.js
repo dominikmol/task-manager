@@ -21,7 +21,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-lt-installed="true" className={" hdacklusd idc0_350 zwcl jkoxwjtnaq"}>
+    <html lang="en" data-lt-installed="true" className={" hdacklusd idc0_350 zwcl jkoxwjtnaq cwmnxxb kjabuomd"}>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <AuthProvider>
           <Navbar />

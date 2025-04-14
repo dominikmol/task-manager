@@ -51,7 +51,7 @@ export default function AccountPage() {
           console.log('Error fetching user data:', error);
         });
     }
-  }, [user, userData]);
+  }, [user]);
 
   if (!isMounted) {
     return null; // jeśli nie jest zamontowany, nie renderuj nic

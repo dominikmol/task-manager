@@ -9,7 +9,12 @@ import { useAuth } from '@/app/contexts/authContext.js';
 
 export default function Home() {
   const { user, register } = useAuth();
+  const [isMounted, setIsMounted] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    setIsMounted(true); // opóźnienie renderowania komponentu, by dane były dostępne
+  }, []);
 
   useEffect(() => {
     if (user) {
@@ -28,6 +33,10 @@ export default function Home() {
     } catch (error) {
       alert("registration failed, check that your details are correct or make sure you don't already have an account");
     }
+  }
+
+  if (!isMounted) {
+    return null; // jeśli nie jest zamontowany, nie renderuj nic
   }
 
   return (

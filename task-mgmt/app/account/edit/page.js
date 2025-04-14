@@ -2,12 +2,12 @@
 
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { useAuth, logout } from '@/app/contexts/authContext.js';
+import { useAuth } from '@/app/contexts/authContext.js';
 import Image from 'next/image';
 import pb from '@/app/services/pocketbase';
 
 export default function AccountEditPage() {
-  const { user } = useAuth();
+  const { user, setUser, login, logout } = useAuth();
   const [isMounted, setIsMounted] = useState(false);
   const [userData, setUserData] = useState([]);
   const router = useRouter();
@@ -32,52 +32,51 @@ export default function AccountEditPage() {
           console.log('Error fetching user data:', error);
         });
     }
-  }, [user, userData]);
+  }, [user]);
 
   if (!isMounted) {
     return null; // jeśli komponent nie jest zamontowany, nie renderuj nic
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     const username = e.target.username.value;
-    const password = e.target.password.value;
-    const email = e.target.email.value;
-    console.log('username', username);
-    console.log('password', password);
-    console.log('email', email);
-    if (!password) {
-      const userid = user.id;
-      logout();
-      console.log("haslo puste");
-      pb.collection('users').update(userid, {
-        email: email,
+    const oldPassword = e.target.oldPassword.value;
+    const newPassword = e.target.password.value;
+
+    if (password !== '') {
+      await pb.collection('users').update(user.id, {
         name: username,
+        oldPassword: oldPassword,
+        password: newPassword,
+        passwordConfirm: newPassword,
       })
-        .then(() => {
-          router.push('/account');
+        .then(async () => {
+          const updatedUser = await pb.collection('users').getOne(user.id);
+          console.log('Updated user:', updatedUser);
+          setUser(updatedUser);
+          router.push('/');
         })
         .catch((error) => {
-          console.log('Error updating user:', error);
+          console.log('Error updating user data:', error);
         });
+
     } else {
-      const userid = user.id;
-      logout();
-      console.log("haslo nowe");
-      pb.collection('users').update(userid, {
-        email: email,
+      await pb.collection('users').update(user.id, {
         name: username,
-        password: password,
       })
-        .then(() => {
-          console.log("haslo zmienione na " + password);
-          router.push('/account');
+        .then(async () => {
+          const updatedUser = await pb.collection('users').getOne(user.id);
+          console.log('Updated user:', updatedUser);
+          setUser(updatedUser);
+          router.push('/=');
         })
         .catch((error) => {
-          console.log('Error updating user:', error);
+          console.log('Error updating user data:', error);
         });
     }
   }
+
 
   return (
     <>
@@ -97,7 +96,11 @@ export default function AccountEditPage() {
               </div>
               <div className="input_wrapper d-flex align-items-center">
                 <Image src="/img/password.svg" width={64} height={64} alt='password' className="me-3" />
-                <input type="password" name="password" id="password" className="border_custom login_form" placeholder="password" />
+                <input type="password" name="oldPassword" id="oldPassword" className="border_custom login_form" placeholder="old password" />
+              </div>
+              <div className="input_wrapper d-flex align-items-center">
+                <Image src="/img/password.svg" width={64} height={64} alt='password' className="me-3" />
+                <input type="password" name="password" id="password" className="border_custom login_form" placeholder="new password" />
               </div>
               <div className="input_wrapper d-flex justify-content-center gap-2 mt-5">
                 <button className="border_custom button_style" type="reset">
