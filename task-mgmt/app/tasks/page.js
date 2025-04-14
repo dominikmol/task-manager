@@ -180,12 +180,18 @@ export default function TasksPage() {
             </select>
           </div>
         </div>
-        <div className="col-md-9">
-          <div className="lvl-panel border_custom mb-3">
+        <div className="col-md-9 d-flex align-items-center mb-3">
+          <div class="current_lvl d-flex align-items-center justify-content-center">
+            <svg viewBox="0 0 100 100" width="200" height="205">
+              <polygon points="50,0 100,25 100,75 50,100 0,75 0,25" fill="rgba(41, 41, 41, 0.75)" stroke="#EBD478" stroke-width="5" transform="rotate(180, 50, 50)"/>
+            </svg>
+            <p class="mb-0 progress-text">{userData.current_lvl}<sub>lvl</sub></p>
+          </div>
+          <div className="lvl-panel border_custom w-100">
             <div className="card-body">
               <div className="d-flex align-items-center text-center progress-absolute">
                 <p className='mb-0 mx-auto align-self-center progress-text'>{userData.current_xp}XP/{userData.current_max_xp}XP ({parseInt(userLvlP)}%)</p>
-                <div className="progress flex-grow-1" style={{ height: '30px' }}>
+                <div className="progress flex-grow-1" style={{ height: '25px' }}>
                   <div className="progress-bar level-bar" role="progressbar" style={{ width: `${parseInt(userLvlP)}%` }} aria-valuenow={parseInt(userLvlP)} aria-valuemin="0" aria-valuemax={userData.current_max_xp}></div>
                 </div>
               </div>
