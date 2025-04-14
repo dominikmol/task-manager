@@ -83,7 +83,7 @@ export default function TaskEditPage() {
                             </div>
                             <div className="col-md-2 mt-auto mx-auto">
                                 <div className="d-flex flex-column">
-                                    <button className="border_custom login_form w-100 mb-3" type="reset" onClick={() => router.push('/tasks')}>
+                                    <button className="border_custom login_form w-100 mb-3" type="reset">
                                         <Image src="/img/cancel.svg" width={32} height={32} alt='cancel' />
                                         cancel
                                     </button>
