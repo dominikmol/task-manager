@@ -7,7 +7,7 @@ import Image from 'next/image';
 import pb from '@/app/services/pocketbase';
 
 export default function AccountEditPage() {
-  const { user, setUser, login, logout } = useAuth();
+  const { user, logout } = useAuth();
   const [isMounted, setIsMounted] = useState(false);
   const [userData, setUserData] = useState([]);
   const router = useRouter();

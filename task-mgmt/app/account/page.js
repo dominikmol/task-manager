@@ -39,7 +39,7 @@ export default function AccountPage() {
         });
 
     }
-  }, [user, router, allTasksNumber, openTasksNumber, closedTasksNumber, tasks]);
+  }, [user, router, tasks]);
 
   useEffect(() => {
     if (user) {

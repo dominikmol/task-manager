@@ -97,9 +97,9 @@ export default function TasksPage() {
     return `${year}-${month}-${day} ${hours}:${minutes}`;
   }
 
-  function handleTaskClick(task) {
-    setSelectedTask(task);
-  }
+  // function handleTaskClick(task) {
+  //   setSelectedTask(task);
+  // }
 
   function handleTaskDelete(id) {
     pb.collection('tasks').delete(id)
@@ -208,7 +208,7 @@ export default function TasksPage() {
               tasks.length > 0 ? (
                 sortTasks(tasks, sortBy).
                   filter((task) => task.is_done === false).map((task) => (
-                    <div className={`task p-4 ${selectedTask && task.id === selectedTask.id ? 'active' : ''}`} key={task.id} onClick={() => handleTaskClick(task)}>
+                    <div className={`task p-4 ${selectedTask && task.id === selectedTask.id ? 'active' : ''}`} key={task.id} onClick={() => setSelectedTask(task)}>
                       <h1>{task.task_name}</h1>
                       <h6>task lvl: {taskDifficultyDict[task.task_lvl]}</h6>
                       <h6>due by: {formatDate(task.finish_before)}</h6>
